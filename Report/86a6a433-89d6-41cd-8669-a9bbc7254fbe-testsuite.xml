@@ -1,0 +1,115 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1541390729413" stop="1541390792855">
+  <name>test_address</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1541390729413" status="failed" stop="1541390760573">
+      <name>TestAdress.test_new_address</name>
+      <failure>
+        <message>NameError: name '点击新增地址' is not defined</message>
+        <stack-trace>self = &lt;test_address.TestAdress object at 0x000001608374E1D0&gt;, name = '张三', phone = '18600000000', sheng = '河南', shi = '郑州', qu = '二七', addressinfo = '某某路梧桐街38号'
+postcode = '472721'
+
+    def test_new_address(self,name="张三",phone="18600000000",sheng="河南",shi="郑州",qu="二七",addressinfo="某某路梧桐街38号",postcode="472721"):
+&gt;       点击新增地址
+E       NameError: name '点击新增地址' is not defined
+
+Scripts\test_address.py:46: NameError</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="16180-MainThread"/>
+        <label name="host" value="DESKTOP-5G2TS04"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1541390751685" status="passed" stop="1541390753951">
+          <name>输入用户名：</name>
+          <title>输入用户名：</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1541390753951" status="passed" stop="1541390755018">
+          <name>输入密码：</name>
+          <title>输入密码：</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1541390755019" status="passed" stop="1541390755562">
+          <name>点击登录：</name>
+          <title>点击登录：</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1541390755562" status="passed" stop="1541390758284">
+          <name>点击设置：</name>
+          <title>点击设置：</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1541390760576" status="failed" stop="1541390792855">
+      <name>TestAdress.test_update_address[\u738b\u4e94-18622220000-\u5e7f\u4e1c-\u6df1\u5733-\u5b9d\u5b89-\u7559\u4ed9\u4e8c\u8def\u4e2d\u7cae\u5546\u52a1\u516c\u56ed13\u5c42-472501]</name>
+      <failure>
+        <message>TimeoutException: Message: 
+</message>
+        <stack-trace>self = &lt;test_address.TestAdress object at 0x0000016083F877B8&gt;, name = '王五', phone = '18622220000', sheng = '广东', shi = '深圳', qu = '宝安'
+addressinfo = '留仙二路中粮商务公园13层', postcode = '472501'
+
+    @pytest.mark.parametrize("name,phone,sheng,shi,qu,addressinfo,postcode", get_data("update"))
+    def test_update_address(self, name, phone, sheng, shi, qu, addressinfo, postcode):
+        # 点击编辑
+        self.address.page_click_edit()
+        # 点击修改
+&gt;       self.address.page_click_update()
+
+Scripts\test_address.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+Page\page_address.py:77: in page_click_update
+    elements = self.base_input_text_get_elements("修改")
+Base\base.py:80: in base_input_text_get_elements
+    return self.base_find_elements(loc)
+Base\base.py:29: in base_find_elements
+    return WebDriverWait(self.driver,timeout,poll_frequency=poll).until(lambda x:x.find_elements(*loc))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="910c31b3-6f18-4608-b282-d60324eefe8e")&gt;
+method = &lt;function Base.base_find_elements.&lt;locals&gt;.&lt;lambda&gt; at 0x0000016083FA4488&gt;, message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value is not False."""
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+e:\python\python36\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="16180-MainThread"/>
+        <label name="host" value="DESKTOP-5G2TS04"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>
